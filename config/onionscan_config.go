@@ -24,11 +24,12 @@ type OnionScanConfig struct {
 	Scans           []string
 	CrawlConfigs    map[string]CrawlConfig
 	Cookies         []*http.Cookie
+	HTTPUserAgent   string
 }
 
 // Configure creates a new OnionScanConfig object with a set of options.
 // FIXME: We can make this a decorate and make it much nicer.
-func Configure(torProxyAddress string, directoryDepth int, fingerprint bool, timeout int, database string, scans []string, crawlconfigdir string, cookie string, verbose bool) *OnionScanConfig {
+func Configure(torProxyAddress string, directoryDepth int, fingerprint bool, timeout int, database string, scans []string, crawlconfigdir string, cookie string, verbose bool, httpuseragent string) *OnionScanConfig {
 	osc := new(OnionScanConfig)
 	osc.TorProxyAddress = torProxyAddress
 	osc.Depth = directoryDepth
@@ -40,6 +41,7 @@ func Configure(torProxyAddress string, directoryDepth int, fingerprint bool, tim
 	osc.RescanDuration = time.Hour * -100
 	osc.Scans = scans
 	osc.CrawlConfigs = make(map[string]CrawlConfig)
+	osc.HTTPUserAgent = httpuseragent
 
 	rawRequest := fmt.Sprintf("GET / HTTP/1.0\r\nCookie: %s\r\n\r\n", cookie)
 

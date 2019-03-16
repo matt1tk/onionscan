@@ -189,7 +189,13 @@ func (os *OnionSpider) Crawl(hiddenservice string, osc *config.OnionScanConfig, 
 }
 
 func (os *OnionSpider) GetPage(uri string, base *url.URL, osc *config.OnionScanConfig, snapshot bool) (int, error) {
-	response, err := os.client.Get(uri)
+	//OLD CODE
+	//response, err := os.client.Get(uri)
+
+	req, err := http.NewRequest("GET", uri, nil)
+
+	req.Header.Add("User-Agent", osc.HTTPUserAgent)
+	response, err := os.client.Do(req)
 
 	// Sometimes Weird Things Happen
 	if err != nil {
