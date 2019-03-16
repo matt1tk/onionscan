@@ -213,7 +213,10 @@ func (os *OnionSpider) GetPage(uri string, base *url.URL, osc *config.OnionScanC
 		osc.LogInfo(fmt.Sprintf("Grabbed %d byte document", len(page.Snapshot)))
 	} else if strings.Contains(response.Header.Get("Content-Type"), "image/jpeg") {
 		page = SnapshotBinaryResource(response.Body)
-		osc.LogInfo(fmt.Sprintf("Fetched %d byte image", len(page.Raw)))
+		osc.LogInfo(fmt.Sprintf("Fetched %d byte jpeg image", len(page.Raw)))
+	} else if strings.Contains(response.Header.Get("Content-Type"), "image/png") {
+		page = SnapshotBinaryResource(response.Body)
+		osc.LogInfo(fmt.Sprintf("Fetched %d byte png image", len(page.Raw)))
 	} else if snapshot {
 		page = SnapshotResource(response.Body)
 		osc.LogInfo(fmt.Sprintf("Grabbed %d byte document", len(page.Snapshot)))
