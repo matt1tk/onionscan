@@ -1,11 +1,11 @@
 package deanonymization
 
 import (
+	"../config"
+	"../report"
 	"bytes"
 	"crypto/sha256"
 	"errors"
-	"github.com/s-rah/onionscan/config"
-	"github.com/s-rah/onionscan/report"
 	"regexp"
 	"strings"
 )

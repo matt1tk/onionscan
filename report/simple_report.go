@@ -1,10 +1,10 @@
 package report
 
 import (
+	"../utils"
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/s-rah/onionscan/utils"
 )
 
 const SEV_INFO = "info"

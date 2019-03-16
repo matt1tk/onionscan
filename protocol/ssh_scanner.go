@@ -1,13 +1,13 @@
 package protocol
 
 import (
+	"../config"
+	"../report"
+	"../utils"
 	"bufio"
 	"crypto/md5"
 	"errors"
 	"fmt"
-	"github.com/s-rah/onionscan/config"
-	"github.com/s-rah/onionscan/report"
-	"github.com/s-rah/onionscan/utils"
 	"golang.org/x/crypto/ssh"
 	"net"
 )

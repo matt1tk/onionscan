@@ -1,14 +1,14 @@
 package protocol
 
 import (
+	"../config"
+	"../report"
+	"../utils"
 	"bytes"
 	"crypto/sha256"
 	"encoding/base32"
 	"encoding/binary"
 	"fmt"
-	"github.com/s-rah/onionscan/config"
-	"github.com/s-rah/onionscan/report"
-	"github.com/s-rah/onionscan/utils"
 	"io"
 	"net"
 	"regexp"

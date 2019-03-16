@@ -1,10 +1,10 @@
 package onionscan
 
 import (
+	"../config"
+	"../protocol"
+	"../report"
 	"fmt"
-	"github.com/s-rah/onionscan/config"
-	"github.com/s-rah/onionscan/protocol"
-	"github.com/s-rah/onionscan/report"
 	"time"
 )
 

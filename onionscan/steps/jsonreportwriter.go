@@ -1,9 +1,9 @@
 package steps
 
 import (
+	"../../report"
 	"bytes"
 	"fmt"
-	"github.com/s-rah/onionscan/report"
 	"log"
 	"os"
 	"time"

@@ -1,8 +1,8 @@
 package deanonymization
 
 import (
-	"github.com/s-rah/onionscan/config"
-	"github.com/s-rah/onionscan/report"
+	"../config"
+	"../report"
 	"golang.org/x/crypto/openpgp"
 	"regexp"
 	"strings"

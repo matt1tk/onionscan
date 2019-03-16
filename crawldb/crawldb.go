@@ -1,11 +1,11 @@
 package crawldb
 
 import (
+	"../model"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"github.com/HouzuoGuo/tiedot/db"
-	"github.com/s-rah/onionscan/model"
 	"log"
 	"time"
 )

@@ -1,9 +1,9 @@
 package config
 
 import (
+	"../crawldb"
 	"bufio"
 	"fmt"
-	"github.com/s-rah/onionscan/crawldb"
 	"log"
 	"net/http"
 	"os"

@@ -1,13 +1,13 @@
 package protocol
 
 import (
+	"../config"
+	"../report"
+	"../utils"
 	"bufio"
 	"crypto/sha1"
 	"encoding/hex"
 	"fmt"
-	"github.com/s-rah/onionscan/config"
-	"github.com/s-rah/onionscan/report"
-	"github.com/s-rah/onionscan/utils"
 )
 
 type SMTPProtocolScanner struct {

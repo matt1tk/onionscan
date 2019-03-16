@@ -1,11 +1,11 @@
 package webui
 
 import (
+	"../config"
+	"../crawldb"
+	"../utils"
 	"errors"
 	"fmt"
-	"github.com/s-rah/onionscan/config"
-	"github.com/s-rah/onionscan/crawldb"
-	"github.com/s-rah/onionscan/utils"
 	"html/template"
 	"log"
 	"net/http"

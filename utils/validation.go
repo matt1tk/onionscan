@@ -11,5 +11,9 @@ func IsOnion(identifier string) bool {
 		matched, _ := regexp.MatchString(`(^|\.)[a-z2-7]{16}\.onion$`, identifier)
 		return matched
 	}
+	if len(identifier) >= 62 && strings.HasSuffix(identifier, ".onion") {
+		matched, _ := regexp.MatchString(`(^|\.)[a-z2-7]{56}\.onion$`, identifier)
+		return matched
+	}
 	return false
 }

@@ -1,12 +1,12 @@
 package protocol
 
 import (
+	"../config"
+	"../report"
 	"fmt"
-	"github.com/s-rah/onionscan/config"
-	"github.com/s-rah/onionscan/report"
 
-	"github.com/s-rah/onionscan/spider"
-	"github.com/s-rah/onionscan/utils"
+	"../spider"
+	"../utils"
 	"net/http"
 )
 

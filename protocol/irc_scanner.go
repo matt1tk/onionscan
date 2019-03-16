@@ -1,10 +1,10 @@
 package protocol
 
 import (
+	"../config"
+	"../report"
+	"../utils"
 	"fmt"
-	"github.com/s-rah/onionscan/config"
-	"github.com/s-rah/onionscan/report"
-	"github.com/s-rah/onionscan/utils"
 )
 
 type IRCProtocolScanner struct {
