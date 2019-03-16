@@ -20,6 +20,7 @@ type AnonymityReport struct {
 
 	// Apache Specific
 	FoundApacheModStatus   bool     `json:"foundApacheModStatus"`
+	FoundApacheModInfo     bool     `json:"foundApacheModInfo"`
 	ServerVersion          string   `json:"serverVersion"`
 	RelatedOnionServices   []string `json:"relatedOnionServices"`
 	RelatedClearnetDomains []string `json:"relatedOnionDomains"`

@@ -133,6 +133,18 @@ func (srt *ApacheModStatusCheck) Check(out *SimpleReport, report *AnonymityRepor
 	}
 }
 
+// ApacheModInfoCheck implementation
+type ApacheModInfoCheck struct{}
+
+func (srt *ApacheModInfoCheck) Check(out *SimpleReport, report *AnonymityReport) {
+	if report.FoundApacheModInfo {
+		out.AddRisk(SEV_HIGH, "Apache mod_info is enabled and accessible",
+			"Why this is bad: An attacker can gain very valuable information from this info status page including Apache config and mods enabled.",
+			"To fix, disable mod_info or serve it on a different port than the configured hidden service.",
+			nil)
+	}
+}
+
 // RelatedClearnetDomainsCheck implementation
 type RelatedClearnetDomainsCheck struct{}
 

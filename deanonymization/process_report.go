@@ -24,6 +24,7 @@ func (eis *ExtractIdentifierStep) Do(osreport *report.OnionScanReport) error {
 	GetUserDefinedRelationships(osreport, anonreport, eis.osc)
 
 	ApacheModStatus(osreport, anonreport, eis.osc)
+	ApacheModInfo(osreport, anonreport, eis.osc)
 	CheckExposedDirectories(osreport, anonreport, eis.osc)
 	PGPContentScan(osreport, anonreport, eis.osc)
 	MailtoScan(osreport, anonreport, eis.osc)
