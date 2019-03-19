@@ -29,6 +29,7 @@ type AnonymityReport struct {
 	AnalyticsIDs           []string `json:"analyticsIDs"`
 	BitcoinAddresses       []string `json:"bitcoinAddresses"`
 	LinkedOnions           []string `json:"linkedOnions"`
+	PhpInfoFiles           []string `json:"phpInfoFiles"`
 
 	OpenDirectories []string    `json:"openDirectories"`
 	ExifImages      []ExifImage `json:"exifImages"`

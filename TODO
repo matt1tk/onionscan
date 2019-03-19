@@ -1,0 +1,9 @@
+-Add this, but add a port on report too... https://github.com/s-rah/onionscan/pull/121/files
+-add RPD detection from: https://github.com/s-rah/onionscan/pull/97/files
+-Add VNC info: https://github.com/s-rah/onionscan/pull/83/files
+-When scanning http add ports to check common hosting panels like: 2083 for cpanel, 8443 plesk, 10000 for webmin, 8083 vestacp
+-when scanning http: check for redirects in URLs common like: /phpMyAdmin /cpanel /phpmyadmin
+-SMTP new ports: Common SMTP ports: SMTP - port 25 or 2525 or 587. Secure SMTP (SSL / TLS) - port 465 or 25 or 587, 2526
+-Monero scanner: ports 18080 or 18081
+-Tor Socks and HTTP proxy check: 8118 and http is 9050
+-Tor relay on port 9001

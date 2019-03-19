@@ -138,10 +138,22 @@ type ApacheModInfoCheck struct{}
 
 func (srt *ApacheModInfoCheck) Check(out *SimpleReport, report *AnonymityReport) {
 	if report.FoundApacheModInfo {
-		out.AddRisk(SEV_HIGH, "Apache mod_info is enabled and accessible",
+		out.AddRisk(SEV_MEDIUM, "Apache mod_info is enabled and accessible",
 			"Why this is bad: An attacker can gain very valuable information from this info status page including Apache config and mods enabled.",
 			"To fix, disable mod_info or serve it on a different port than the configured hidden service.",
 			nil)
+	}
+}
+
+// PhpInfoCheck implementation
+type PhpInfoCheck struct{}
+
+func (srt *PhpInfoCheck) Check(out *SimpleReport, report *AnonymityReport) {
+	if len(report.PhpInfoFiles) > 1 {
+		out.AddRisk(SEV_MEDIUM, "PHPInfo file leak",
+			"Why this is bad: An attacker can gain very valuable information from this info page including PHP config and mods enabled.",
+			"To fix, remove this file.",
+			report.PhpInfoFiles)
 	}
 }
 
@@ -236,6 +248,8 @@ var checks = []SimpleReportCheck{
 	&AnalyticsIDsCheck{},
 	&BitcoinAddressesCheck{},
 	&ApacheModStatusCheck{},
+	&ApacheModInfoCheck{},
+	&PhpInfoCheck{},
 	&RelatedClearnetDomainsCheck{},
 	&RelatedOnionServicesCheck{},
 	&OpenDirectoriesCheck{},

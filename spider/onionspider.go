@@ -134,12 +134,28 @@ func (os *OnionSpider) Crawl(hiddenservice string, osc *config.OnionScanConfig, 
 	id, err = os.GetPage(mod_status.String(), base, osc, true)
 	addCrawl(mod_status.String(), id, err)
 
+	// Grab Server Status if it Exists
+	// We add it as a resource so we can pull any information out of it later.
+	mod_info, _ := url.Parse("http://" + hiddenservice + "/server-info")
+	osc.LogInfo(fmt.Sprintf("Scanning URI: %s", mod_info.String()))
+	id, err = os.GetPage(mod_info.String(), base, osc, true)
+	addCrawl(mod_info.String(), id, err)
+
 	// Grab Private Key if it Exists
 	// This would be a major security fail
 	private_key, _ := url.Parse("http://" + hiddenservice + "/private_key")
 	osc.LogInfo(fmt.Sprintf("Scanning URI: %s", private_key.String()))
 	id, err = os.GetPage(private_key.String(), base, osc, true)
 	addCrawl(private_key.String(), id, err)
+
+	//Crawl PHPInfo module
+	phpInfoArr := [3]string{"/phpinfo.php", "/info.php", "/php.php"}
+	for _, infoFile := range phpInfoArr {
+		file, _ := url.Parse("http://" + hiddenservice + infoFile)
+		osc.LogInfo(fmt.Sprintf("Scanning URI: %s", file.String()))
+		id, err = os.GetPage(file.String(), base, osc, true)
+		addCrawl(file.String(), id, err)
+	}
 
 	processed := make(map[string]bool)
 
